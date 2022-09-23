@@ -1,0 +1,14 @@
+<div class="mt-5 shadow p-3 text-bg-secondary bg-opacity-50 rounded ">
+  <h1 class="text-body">Listado de Paises</h1>
+  <label for="exampleInputPais" class="form-label text-body">Seleccionar Pais:</label>
+  <div class="overflow-auto border border-4 rounded" style="height: 500px;">
+    <div *ngFor="let pais of paises">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="firstRadio" checked (click)="seleccionarPais(pais.nombre)">
+          {{pais.nombre}} - [ <img src="{{pais.bandera}}" width="20">  {{pais.denominacion}} ]
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

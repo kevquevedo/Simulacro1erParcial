@@ -1,0 +1,63 @@
+<div class="d-flex flex-row justify-content-center text-bg-secondary bg-opacity-25 vh-100" >
+
+  <!--FORMULARIO-->
+  <form [formGroup]="formulario" class="w-50" >
+
+    <h1 class="mt-5 text-body">ALTA DE ACTOR</h1>
+    <!--NOMBRE Y APELLIDO-->
+    <div class="d-flex flex-row">
+      <div class="w-25 p-2 mb-3 "  >
+        <label for="exampleInputNombre" class="form-label text-body">Nombre</label>
+        <input type="nombre" class="form-control" id="exampleInputNombre" placeholder="Ingrese su nombre" formControlName="nombre" >
+      </div>
+      <div class="w-25 p-2 mb-3">
+        <label for="exampleInputApellido" class="form-label text-body">Apellido</label>
+        <input type="apellido" class="form-control" id="exampleInputApellido" placeholder="Ingrese su apellido" formControlName="apellido" >
+      </div>
+    </div>
+
+    <!--USERNAME-->
+    <div class="w-75 p-2 mb-3">
+      <label for="exampleInputUserName" class="form-label text-body">Username</label>
+      <input type="username" class="form-control" id="exampleInputUserName" placeholder="@username" formControlName="username">
+    </div>
+
+    <!--EMAIL-->
+    <div class="w-75 p-2 mb-3">
+      <label for="exampleInputEmail" class="form-label text-body">Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail" placeholder="you@gmail.com" formControlName="email">
+    </div>
+
+    <!--DIRECCION-->
+    <div class="w-75 p-2 mb-3">
+      <label for="exampleInputDireccion" class="form-label text-body">Dirección</label>
+      <input type="direccion" class="form-control" id="exampleInputDireccion" placeholder="Avenida 123" formControlName="direccion">
+    </div>
+
+    <!--SEXO-->
+    <div class="w-75 p-2 mb-3">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Sexo</label>
+        <select class="form-select" id="inputGroupSelect01" (change)="verSexo($event)" >
+          <option selected>Seleccionar...</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="button" class="btn btn-outline-primary" (click)="crearActor()">Guardar Actor</button><br><br>
+
+    <p *ngIf="exitoMensaje != undefined" class="alert alert-success w-75 p-2 mb-3">{{exitoMensaje}}</p>
+    <p *ngIf="errorMensaje != undefined" class="alert alert-danger w-75 p-2 mb-3">{{errorMensaje}}</p>
+  </form>
+
+  <!--DIV PAISES-->
+  <div class="w-25">
+    <app-tabla-paises (paisSeleccionado)="recibirPaisSelect($event)"></app-tabla-paises>
+  </div>
+</div>
+
+
+
+
